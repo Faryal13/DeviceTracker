@@ -1,0 +1,70 @@
+<div class="container mt-4">
+  <!-- Title for the page -->
+  <h2 class="mb-4">🔍 Device Directory</h2>
+
+  <!-- Search and Filter Section -->
+  <div class="row mb-3 align-items-end">
+    <!-- Search Bar for Hostname or Serial Number -->
+    <div class="col-md-6">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Search by Hostname or Serial Number..." 
+        [(ngModel)]="searchTerm"  
+      >
+    </div>
+
+    <!-- Search Button -->
+    <div class="col-md-3">
+      <button class="btn btn-primary ms-2" (click)="filteredDevices()">Search</button>  <!-- Calls filteredDevices() on click -->
+    </div>
+
+    <!-- Filter Dropdown for Device Status -->
+    <div class="col-md-3">
+      <label class="form-label">Filter by Status</label>
+      <select class="form-select" [(ngModel)]="filterStatus" (ngModelChange)="filteredDevices()">
+        <!-- Filter options for 'All', 'Online', and 'Offline' statuses -->
+        <option value="all">All</option>
+        <option value="Online">Online</option>
+        <option value="Offline">Offline</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Device Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-light">
+        <!-- Table Header -->
+        <tr>
+          <th>Hostname</th>
+          <th>Serial Number</th>
+          <th>OS Version</th>
+          <th>Model</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through the filtered devices and display each row -->
+        <tr *ngFor="let device of filteredDeviceRecord">
+          <td>{{ device.hostname }}</td>  
+          <td>{{ device.serial }}</td>    
+          <td>{{ device.os }}</td>       
+          <td>{{ device.model }}</td>   
+          <td>
+            <span class="badge" [ngClass]="{
+              'bg-success': device.status === 'Online',  
+              'bg-secondary': device.status === 'Offline' 
+            }">
+              {{ device.status }}
+            </span>
+          </td>
+        </tr>
+        <!-- Display a message if no devices match the search/filter -->
+        <tr *ngIf="filteredDeviceRecord.length === 0">
+          <td colspan="5" class="text-center text-muted">No devices found.</td>  <!-- No records message -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

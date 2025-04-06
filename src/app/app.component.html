@@ -1,29 +1,9 @@
-<div class="app-container d-flex flex-column vh-100">
+<div class="app-container d-flex flex-column vh-100" >
   <!-- Header -->
-  <header class="app-header bg-primary text-white p-3 d-flex align-items-center">
-    <h4 class="mb-0">📡 DeviceTracker</h4>
-  </header>
-
-  <!-- Body -->
+  <app-headers></app-headers>
   <div class="app-body d-flex flex-grow-1">
     <!-- Sidebar -->
-    <nav class="sidebar bg-light p-3" style="width: 220px;">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/devices" routerLinkActive="active">Devices</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/logs" routerLinkActive="active">Logs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/settings" routerLinkActive="active">Settings</a>
-        </li>
-      </ul>
-    </nav>
-
+    <app-sidebar></app-sidebar>
     <!-- Main Content -->
     <main class="flex-grow-1 p-4">
       <router-outlet></router-outlet>

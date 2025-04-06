@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+/* Default light theme */
+.light-theme {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #007bff;
+  --secondary-color: #ffffff;
+  --headers-color:#007bff;
+
+}
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #6200ea;
+  --secondary-color: #8c8a8f;
+  --headers-color: #121212;
+}
+
+/* General Styles for the body */
+body {
+  background-color: var( --secondary-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+header{
+  background-color: var(--headers-color);
+  color: var(--text-color);
+}
+aside{
+  background-color: var(--secondary-color);
+  color: var(--text-color); 
+}
+button {
+  background-color: var(--primary-color);
+  color: white;
+}
+input{
+  background-color: var(  --secondary-color);
+  color: white;
+
+}
+
+.table {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Any other global styles */
